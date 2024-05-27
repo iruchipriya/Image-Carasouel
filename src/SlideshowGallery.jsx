@@ -58,6 +58,14 @@ const SlideshowGallery = () => {
   //   fetchApi(URL);
   // }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  });
+
   const handlePrev = () => {
     setCurrentImgIndex((prevInedx) =>
       prevInedx === 0 ? images1.length - 1 : prevInedx - 1
